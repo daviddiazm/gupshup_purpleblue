@@ -1,4 +1,4 @@
-const TextArea = ({labelText, description, onNewValue}) => {
+const TextArea = ({labelText, description, moreInfo, onNewValue}) => {
   const [docIsClick, setDocIsClick] = React.useState(false)
   const [value, setValue] = React.useState('')
 
@@ -15,11 +15,13 @@ const TextArea = ({labelText, description, onNewValue}) => {
   }
 
   return (
-    <div className={`p-2 flex flex-col items-start w-full  items-center gap-3  ${changeBg()}`} >
-      <label className="flex items-center gap-2 text-sm w-full leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50" for={labelText} >
-        <div className="flex justify-between items-center" ><p className="mb-0" >{labelText}</p> <span className="material-symbols-outlined bg-gray-500 rounded cursor-pointer color-white mr-1 p-1" style={{ fontSize: "12px", color: "fff" }}  onClick={()=> setDocIsClick(!docIsClick)}>question_mark</span></div>
+    <div className={`p-3 flex flex-col items-start w-full  items-center gap-3 border border-2 border-gray-200 rounded-lg   ${changeBg()}`} >
+      <label className="flex items-center gap-2 text-sm w-full select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50" for={labelText} >
+        <div className="flex justify-between items-center leading-none font-medium " ><p className="mb-0" >{labelText}</p> <span className="material-symbols-outlined bg-gray-500 rounded cursor-pointer color-white mr-1 p-1" style={{ fontSize: "12px", color: "fff" }}  onClick={()=> setDocIsClick(!docIsClick)}>question_mark</span></div>
+        <p className="mb-0 mt-1 ">{description}</p>
       </label>
-      {docIsClick ? <p className="p-2" >{description}</p> : '' }
+
+      {docIsClick ? <p className="font-thin w-40/50" >{moreInfo}</p> : ''}
       
       <textarea 
       name={labelText} 
