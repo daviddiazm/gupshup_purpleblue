@@ -17,7 +17,7 @@ const Category = ({ labelText, description, moreInfo }) => {
 
       {docIsClick ? <p className="font-thin w-40/50" >{moreInfo}</p> : ''}
 
-      <div className="flex gap-3">
+      <div className="flex flex-col gap-4 md:flex-row">
         <div className="bg-gray-100 p-2 rounded-lg">
           <input type="radio" name="category" id="marketing"/>
           <label htmlFor="marketing" style={{ height: "auto" }}>
